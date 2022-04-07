@@ -14,9 +14,13 @@ code {
 
 .wrapper {
   margin: auto;
-  width: 1200px;
 }
 
-.WarehousesList{
-list-style-type: none;
+.CardItem{
+  margin: 10px;
+}
+
+.Details{
+  display: flex;
+  flex-wrap: wrap;
 }
