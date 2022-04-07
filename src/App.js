@@ -8,7 +8,6 @@ function App() {
     fetch("http://localhost:3001/cars")
     .then(response => response.json())
     .then(json => {
-      // console.log(json);
       setPosts(json)
     })
   },[])
