@@ -1,10 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import List from './components/List'
+import * as React from 'react';
+
+import Navbar from './components/Navbar'
+import WareHouses from './components/WareHouses'
 
 function App() {
-  let [data, setPosts] = useState([])
+  let [data, setPosts] = React.useState([])
 
-  useEffect(()=>{
+  const [cartProducts, setCartProducts] = React.useState([]);
+
+  const handleAddtoCart = productID =>{
+    setCartProducts([...cartProducts, productID])
+  };
+
+  // const handleRemovefromCart = productID =>{
+  //   const newCartProducts = cartProducts.filter(id => id !== productID)
+  //   setCartProducts(newCartProducts)
+  //   console.log(cartProducts);
+  // }
+
+  React.useEffect(()=>{
     fetch("http://localhost:3001/cars")
     .then(response => response.json())
     .then(json => {
@@ -13,8 +27,9 @@ function App() {
   },[])
 
   return (
-    <div className="wrapper">
-      <List data={data} />
+    <div>
+      <Navbar />
+      <WareHouses handleAddtoCart={handleAddtoCart} data={data} />
     </div>
   );
 }
