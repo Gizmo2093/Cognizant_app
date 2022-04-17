@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Item from './Item'
 
 export default function WareHouses({data, handleAddtoCart}) {
+
   return data.map(el =>{
     return(
       <div key={el._id}>
